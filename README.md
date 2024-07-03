@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @HardikMahajan97
--  I am a 19 year-old student, currently learning how to use GitHub.
+-  I am a 19 year-old student, pursuing Bachelor of Technology in Computer Engineering at Pimpri Chinchwad College of Engieering, Pune.
 
 <!---
 HardikMahajan97/HardikMahajan97 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
