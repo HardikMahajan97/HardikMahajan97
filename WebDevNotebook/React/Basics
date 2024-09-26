@@ -1,0 +1,42 @@
+1. React is a js libarary for creating UI.
+2. In react we would be frequently come across the word 'component' which is nothing but like a function .
+3. We can invoke the component whenever we need.
+4. Everything in react is a component. There can be a componenet hierarchy as well.
+5. React apps are made out of components. A component is a piece of the UI(User Interface) that has it's own logic and appearance. A component can be as small as a button and as large as a page.
+6. React is basically combining the HTML, CSS and javascript .
+7. React code is written in JSX(Javascript Extension Syntax).
+8. It lets us write html code inside js directly.
+9. If you write a code in this format i.e., Js and html both, obviously it will give them both an existential crisis and hence output as error.
+10. So we use 'Babel' as our tool which allows us to write in the react format and then converts the html code or better say transfile the html code to javascript and then works.
+10. To use react we first have to create a project/app .
+11. Go to vite first for the docs or refer here the commands:
+    a. npm createvite@latest
+    b. Proceed with the project name, framework and the variant.
+    c. cd vite-project
+    d. npm install
+    e. npm run dev
+12. Now after running of npm run dev command you will be provided with a link of the app whihc will be our browser link like a localhost.
+13. Use that link to open the app .
+14. This will be your home page and everything will be displayed here and can be changed as per our need.
+15. When we run so many commands our react folder is filled with too many files. But our main file will be the src file in which we use App.css and App.jsx where our main logic will be written.
+16. Also our main files are main.jsx and index.html
+17. The flow is :
+    a. Main.jsx takes App.jsx.
+    b. Then Main.jsx transfers the App.jsx to the root of the index.html
+
+    index.html  ---> main.jsx <--- App.jsx
+    (root) <____________|(App)
+
+18. Getting started:
+19. Your main or the highest level component is your App() component under which everything comes.
+20. Syntax of writing a component:
+    function Component_name(){
+        //Body
+        return (html tags you want to return);
+    }
+
+21. Curly Braces: When we want to write a pure javascript code we use curly braces.
+<p> 2 * 2 = { 2 * 2 } </p>
+[React link ](http://localhost:5173/)
+
+

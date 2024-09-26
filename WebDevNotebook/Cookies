@@ -1,0 +1,40 @@
+1. Cookies are the data that is sent to the web browser when we visit the site.
+2. It collects the data of the most visisted sites and their common usagesso that user experience is enhanced.
+3. These store the data in key:value pairs.
+4. We use res.cookie("key", "value", parameters) to use cookies.
+5. There are signed cokkies which cannot be tampered, through chrome console or application, or any other means of tampering.
+6. Express detects whether the cookie is tampered.
+7. Syntax for normal coikies:
+    res.cookie("key", "value",);
+
+8. Syntax for signed cookies:
+    a. First require cookie parser:
+        const cookieParser = require("cookie-parser");
+    b. Then use the middleware 
+        app.use(cookieParser("Secret_Code"));
+       to give the cookie a unique value which is stored in some string like "secret_code" or a number etc.
+    c. Now use :
+        res.cookie("key", "value", {signed:true});
+       This syas that the cookie is signed and has ti use the secret code so that the intruder wont be able to see the exact value of the key. And thus the value will be encrypted in a string format.
+    d. Now to USE or EXTRACT the data/key-value pairs in the browser, we use Syntax:
+        req.signedCookies;
+       This gives the exact decoded value of the key:value pair.
+9. This is how we send a cookie to the browser with a sign so that no one will tamper it .
+10. If someone tries to tamper it, through any browser, the req.signedCookies will show up an empty braces if and only if the complete encoded value is replaced with some other value.
+11. If someone only changed the value from the string of encrypted value, and hence not replacing the whole string, then 
+req.signedCookies will show the key as it is stated and the value as "false", which means that only the value was chnaged from the whole string.
+12. Suppose we have sent a cookie:
+        const cookieParser = require("cookie-parser");
+        app.use(cookieParser("secretcode"));
+        app.get("/", (req,res) => {
+            res.cookie("madeIn", "India", {signed: true});
+            res.send("Cookie accepted!");    
+        });
+13. This will Give us the key value pair like:
+        madeIn : s%3AIndia.SzD265YCITNRADItz9WrOjprtm0Uhgksv8p8CWrZr6c
+    As you see the word India is there somewhere between this whole encrypted string.
+    If we change this complete string, then it will give us the empty curly braces.
+    If we change the word India only then it will give us the status of madeIn: "false" . Meaning the string is tampered.
+        
+        
+    

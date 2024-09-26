@@ -1,0 +1,51 @@
+1. Props:
+    Props are the information that you pass to the jsx tag.
+    They are like the arguments that you pass to the function.
+2. Arrays:
+    let features = ["good", "bad", "Worst"];
+    or
+    let options = {a:"good",b:"bad",c:"Worst};
+
+3. List of arrays :
+    a. Map function:
+        let list = features.map((feature) => <li>{feature}</li>)
+    This will print all the elements in the features array as a list like in html.
+    Here feature will be you iterator like in javascript (btn of btns). map function is used to map all the elements in the array with the li tag.
+4. Conditionals in React:
+    Basic javascript way of conditionals(if-else) is also valid but it comes with some flaws of space complexities and code reusabiltiy.
+    So we use ternary operator to check for some conditions.
+    Suppose:
+        function Product({title, price, features}){
+            return (
+                <div className="Product">
+                <h1>{title}</h1>
+                <p>Price is : {price}</p>
+                <p>Rate : {features.map((feature) => <li>{feature}</li>)}</p>
+                </div>
+            );
+        }
+    This is a function without conditions.
+    If we add ternary conditions then :
+        function Product({title, price, features}){
+            return (
+                <div className="Product">
+                <h1>{title}</h1>
+                <p>Price is : {price}</p>
+                <p>Rate : {features.map((feature) => <li>{feature}</li>)}</p>
+                {price >=30000 ? <p>Discount of 5% is available</p> : null}
+                </div>
+            );
+        }
+
+    Here we added ternary operator to check whether the price is above 30000 or not and if true it adds a paragraph(space complexity solved)
+    and if false then does nothing. 
+    OR We can also do this by :
+        isDiscount = price >= 30000 ? ;
+5. Dynamic component styling:
+        When we add styling to a componenet based on some condition it is known as Dynamic component Styling.
+        Suppose in the above example we want to change the styling of the component if the price is above 30000,
+        then we will first define a variable suppose :
+            let styles= {backgroundColor : isDicount ? "yellow" : ""};
+        what we are doing is first of all isDiscount is a method which checks whether the discount is greater than 5% through ternary operator.
+        Then we used ternary operator while using isDiscount method and if true then changed the color to yellow, else null.
+        Now this variable will be added in the div component with className as style = {styles}. 

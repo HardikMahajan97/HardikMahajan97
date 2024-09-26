@@ -1,0 +1,27 @@
+Generally Middle wares are nothing but a mid journey between the client sending request and then backend sending response.
+Middleware is a function that is executed between the time the server receives a request and the time it sends a response. 
+Suppose if we start a server with app.use which is a middleware, and then we write number of app.get,post,patch,delete, etc. 
+Body inside app.use will execute first, and then transfer the control to the other methods that are DEFINED inside the app.use , 
+about where to transfer the control.
+
+1. Syntax:
+    app.use(//required middleware method);
+2. We can either send response to the client through middleware or console.log it in output.
+3. First the middleware will be executed and then wherever it will transfer the flow , that method will be executed.
+
+4. Transfering the control:
+    Using next();
+    i. Pehle toh apna middleware bana lo acche se using app.use();
+    ii. Then us at the end use next(); method, and in (req,res) add one more parameter as next, i.e, (req,res,next).
+5. What next(); does:
+    a. Next kuch nhi bas apna control deta h priority wise 
+    b. jaise if you use two middlewares, then after forst next is called in first middleware then it will search if there are more ,middlewares in the code or not , if there then it will pass the control to that middleware .
+    c. If there donot exist any middleware and next method is executed then it will pass the control to that function where the link was actually redirected. 
+            app.get("/", (req,res) => {
+            res.send("H, I am Root.");
+            });
+    Now, such type of function will be executed.
+6. Middlewares are placed above the routable codes, becuase if the request matches with the route path where the request has been sent then it will directly go to the client system and not go for middlewares.
+7. * In javascript  your line of code matters, means you have write your code about which thing matches first and whcih not. Cuz once matched, Then will send response .
+8. You can also pass the path of the route in the middlewares, like literally <!--app.use("/api", (req,res) =>{}); --!> 
+   When you pass this path then it will only use the middlwares for the particular path only. As simple as that.

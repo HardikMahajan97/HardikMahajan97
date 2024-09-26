@@ -1,0 +1,17 @@
+1. Sessions:
+    They are nothing but a way to store user information on mutliple requests.
+    Suppose you want to add something to a shopping cart and then yiu switched back to some other page,
+    In this case the ones addes in the shopping cart would be stored separately.
+    So to store them only once and accross multiple requests, we use sessions.
+    Go to [Express Sessions middlewares](http://expressjs.com/en/resources/middleware/session.html)
+    **A web application needs the ability to identify users as they browse from page to page. This series of requests and responses, each associated with the same user, is known as a session.
+
+2. Flash/Connect-flash:
+    a. Name explains it as it is, flashing up a message or something for a short time on the browser.
+    b. Suppose you have registered on some website, you get a flash up about, "You have registered successfully!" , like message.
+    c. They appear only once .
+    d. [Connect flash NPM](https://www.npmjs.com/package/connect-flash)
+
+3. Authentication and Authorization:
+    Separate Notebook.
+

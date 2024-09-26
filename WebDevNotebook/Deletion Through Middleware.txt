@@ -1,0 +1,17 @@
+1. Take an example of the customer.js file in database relationships .
+2. There we had one cutomer and his many orders following the one to many(mid) relationships.
+3. So now suppose we want to delete the customer from the database, if we use findByIdAndDelete() method,
+   it will only delete the customer not his orders even though there object id's are same!
+4. So we use mongoose middlewares for this purpose.
+5. Listen Carefully now!:
+    a. findByIdAndDelete() this method is NOT in mongoose middlewares.
+    b. But we have findOneAndDelete() method in mongooose middlewares.
+    c. BUT when we  call findByIdAndDelete() , it AUTOMATICALLY calls the findOneAndDelete() middlewares.
+    d. SO if we will call findByIdAndDelete() as a callback, then it will call the findOneAndDelete() middleware.
+    e. Thus we use it for the deletion of all relations of one with many.
+6. Syntax:
+    schema_name.pre/post("findOneAndDelete", async(collection_Name) => {
+        if(condition to check whether the relation(many) exists ){
+            collection_name.deleteMany({ _id : {$in: collection_name.collection_name}});
+        }
+    })

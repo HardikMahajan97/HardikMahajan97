@@ -1,0 +1,24 @@
+1. Errors in Backned are of many types,
+Synchronous errors: Those which occur from normal functions.
+Asynchronous errors: Which occur from async functions which need time to execute, and hence crashes the servers.
+
+2. To handle them, we use wrapAsync(); method . Do not panic, simply keep your mind calm. It's easy.
+    a. See what happens when yu se try catch blocks in every funcking line, code gets nulkier right, 
+       the repition rule is not followed.
+    b. So we create one special function which is known as wrapAsync() to handle ALL TYPES of ERRORS in ONE particular Route.
+    c. Syntax:
+            function wrapAsync(fn)
+            {
+                return function (req,res,next)  
+                {
+                    fn(req,res,next)
+                        .catch(err => next(err));
+                };
+            }
+    d. Jasta fadun gheu nakos, samjavtoy pudhe.!
+    e. wrapAsync() takes any function as an argument(fn).
+    f. Then it returns one function (return, function both keywords bc) having req,res,and next as there arguments.
+    g. Once return starts executing, the function(i.e, fn) is callback-ed there, As simple as that.
+    h. Now in that function(fn) you simply pass those normal three values and use .catch() method to handle ANY type of ERROR.
+    i. Remember .then() and .catch() method in PROMISES, the same .catch() method is used here.
+    j. In short, special function(wrapAsync()) taking one function(fn) as an argument and returning one function(function()) to execute    the  argument function(again fn()), so that IF any error occurs whether asynchronous or sycnchronous it will handle it.

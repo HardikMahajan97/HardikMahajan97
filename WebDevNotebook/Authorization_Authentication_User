@@ -1,0 +1,22 @@
+1. Hashing Function:
+    a. When we take a password from a website, we dont store it directly as it is.
+    b. We first send it to the hashing function, it then stores it in encrypted string format .
+    c. It is practically not possible to decode the unreadable format of the hashed password.
+    d. Hence our passwords are kept safe.
+    e. When we enter the password while logging in, the password is again sent to the hashing function and then it gives the same output
+       which was given at the time of registering. Thus the first ecncrypted string in the database is matched with the second encrypted string and if both of them are equal then the passwords match and logging in is authorized.
+    f. Hashing is a function:
+        i. Every input gives a output.
+        ii. One-way functions: Password to string is possiblebut reverse is not possible obvio.
+        iii. Different inputs but same length in output
+2. Salting:
+    a. Now even if some hacker got your hashed password, it is although still extremely hard to get the exact password, but you have one more protection layer.
+    b. Adding salt. Better say Jale par Namak chidakna.
+    c. Actually Before saving the passwod in Database we add 32 letter string and then send it to the hashing function. 
+    d. Now it makes it more difficult and practically Impossible to get te password because evenif somehow he got  the exact value of the Hashed passoword, but he wont get exact value of the real password.
+
+3. We can use "Passport" for the Security purpose.
+4. It is a node.js module that has to be installed first , then npm i passport, npm i passport-local, npm i passport-local-mongoose
+5. install these first.
+6. Passport is a very good tool because it helps us to do development without strating from scratch.
+7. ******************* Go to passport npm on google to read all the docs, it will be very helpful. *******************

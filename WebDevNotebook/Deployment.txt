@@ -1,0 +1,43 @@
+1. We use Mongo Atlas for deployment where we send the whole database on the internet.
+2. Password By chance: Hardik
+3. Connection Link : mongodb+srv://hardikmahajan97:Hardik@cluster0.yjmubcu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+4. After succesfully forming a connection, with the database and the server, now move ahead.
+5. We have to re-configure the session id because when we use express sessions they are only valid way while development phase.
+6. Because if we move online and then use express sessions they can do memory leak and are not valid .
+7. Hence we use mongo sessions and cretae another mongo sessions like express sessions. And finally we pass them to sessionOptions for allowing them to be used.
+8. First install mongo-connect package through npm, then requre it in "MongoStore" variable. 
+9. Then use "MongoStore.create" method to create a new sessionOption and store the method in a variable "store" which we will pass to the "sessionOption" method.
+10. After successfully creating sessions online, now we move ahead to deployment.
+11. For deployment we use render.com.
+12. Before deployment first do an Important thing:
+    a. Go to package.json.
+    b. Before anything, inside the curly braces, first write the version og node .
+    c. Example:
+        "engines":{
+            "node": "20.14.0"
+        },
+    d. This thing will come above the name of the project.
+13. After doing this, we can deploy the project, through render.com
+14. The flow is :
+    a. First we connect the project with the github account.
+    b. Thn we connect the github account with render.com.
+    c. We do this because if in future when we want to change something in the project, then we can simply change it in our editor, push it on github and then render will deploy it itself.
+    d. This will be easier.
+15. Before pushing the code to github, we have to make sure that all the secrets and passwords are not visible on the app.js files.
+16. Make sure they are in the .env file.
+17. Then we dont include .env file and our node_modules files while we push our code.
+18. We use .gitignore file to store those files that we dont want to include in the github repo.
+19. After we define the files we want to exclude, we go to add all files on github.
+20. First you need to create a new repo manually by going on github. Then start with these commands: 
+    "git add ." is the command to add.
+21. "git commit -m "COMMENT/TITLE" " is the commnd for commiting/saving.
+22. After git commit , select the branch in which you want to push the code. Command: "git branch <branch_name>" Generally main branch.
+23. Then add remote origin through: "git remote add origin <paste_link_copied_from_code_Section>
+24. Finally push the code to the github by : "git push -u origin <branch_name> -f". Again generally branch name will be main.
+25. Now your code is pushed to github. Inside your repository that you selected.
+26. Now you can finally render it , I mean render.com
+27. Go to render, select the deploy web service option, then connect with the github repository through configuring github.
+28. Then select the environment of the project(currently: node) , then select the build command (currently: npm install --legacy-peer-deps).
+29. Then select the starting command(currently: node app.js).
+30. After this select the free/paid plans and then turn OFF the auto deploy.(Maybe you can turn it on if needed by your organization.)
+31. DEPLOY.

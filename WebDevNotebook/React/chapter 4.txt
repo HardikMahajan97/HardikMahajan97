@@ -1,0 +1,17 @@
+1. When we use the useState() function, we can use it to initialise one single value to one single value.
+2. But when there is some multiple values we use generally arrays or objects.
+3. IN that case we cannot use the useSate() the way i is.
+4. We have to use the spread operator(...) to get the values inside the array or object.
+5. @Example:
+    const [moves, setMoves] = useState({blue:0, green:0, red:0, yellow:0});
+
+    // inside the function where updater function will be called:
+    setMoves((prevMoves) => {
+            return { ...prevMoves, blue : prevMoves.blue + 1};
+    });
+
+    Here setMoves is the updater function, which has prevMoves as a prop and we have used spread operator to de-construct the object.
+    Recall while learning spread operator, we can also change or update or even add new values to the object?
+    We are updating the object this way, through key.
+** When we use spread operator, it creates a new copy and a new address is generated, which then tells react that something has been changed,
+   in the component and it has to re-render it. This is why we use spread operator.

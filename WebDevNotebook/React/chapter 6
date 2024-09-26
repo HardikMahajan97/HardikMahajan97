@@ -1,0 +1,6 @@
+1. Forms in React.
+2. Generally in HTML, forms do have their own state and updated automatically .
+3. But in React mutable state is typically kept in state property of components and only updated with setState().
+4. We can combine the two by making  the react state be the "Single Source of truth".
+5. Then the react component that renders the form also constrols what happens in tha subsequent form. on subsequent user input.
+6. Such component whose value os controlled by react is called *** Controlled Component ***

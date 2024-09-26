@@ -1,0 +1,38 @@
+1. Remember adding eventListeners in javascript?
+2. First we needed to access the element and then apply the eventListeners to them.
+3. But in React we need to simply define a function in which we write the code of what should be done and then, apply the onClick property inside that element tag!
+4. Here is an exmaple:
+
+    function printHelloOnClick(){
+    console.log("Printing Hello");
+    }
+
+    export default function Button(){
+        return (
+            <div>
+                <button onClick = {printHelloOnClick}>Click me!</button>
+            </div>
+        );
+    }
+    And done! As simple as that.
+
+5. States:
+    States is a built-in react object that is used to contain data or information about the component.
+    A state can change over time, whenever it changes, the component re-renders.
+    When we try to update the logic, it only applies on the console and renders only once on the UI, in this case suppose the count button, using onClick listener, it will only update the value on the console and not on the UI though same variable is used.
+    This is why state was introduced.
+6. useState():
+    It is a react hook that let's you add a state variable to your component.
+    State Variable:
+        It is a special variable in which if you do a chnage , then react has to re-render the changes .
+        Simple language, It is used to updat ethe UI through states and state variable.
+    Syntax:
+        const [state, setState] = useState(initialState);
+    * Use state returns an array of exactly two values.
+      1.The current state. During the first render it will match the initialiseState you have passed.
+      2.The set function that let's yu update the state to a different value and trigger a render.
+    Some important information about States:
+        1. When we use useState() function, it acts as an initialiser and initialises the state variable woth some value.
+        2. Later as you know there is only one intialisation, and hence when updater function is called, the useState() function wali line is not executed.
+        3. When it is called, the whole component is re-rendered and hence, first it is executed completely and then component is re-rendered.
+        4. If some lines of code are yet to be executed after the callback, then they are furst executed and then re-redering occurs.

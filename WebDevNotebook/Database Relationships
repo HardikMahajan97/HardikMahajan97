@@ -1,0 +1,22 @@
+1. Three typs of relationships are found :
+    a. One to One Relationship (eg. One post - One user ).
+    b. One to many Relationship (eg. One post - many users(collaboration in instagram)).
+    c. Many to many Relationship (eg. Student and Subject Database(many students many subjects)).
+2. There One to One and Many to Many  are straight forward relationships, the one with a little difficulty is One to many.
+3. There are three approaches to apply One to Many:
+    a. One to few:
+        Store the child document inside the parent.
+        Normally use the shcema to show this by making an array of the particular entity.
+    b. One to Many :
+        Store the REFERENCE(POINT) to the child document inside parent.
+        Object Id is the reference here. This is stored in the another Schema.
+        We do the same thing like we did in one to few but we also add one more Schema which holds the id of the original Schema document. (Please refer the customer.js file in relationships folder).
+    c. One to Squillions:
+        Store a reference to the PARENT document INSIDE the CHILD.\
+        It is opposite of One to many .
+        Eg. Instagram Posts:
+            If you store a user with his multiple posts, there can be many posts for one user,
+            Instead we can make the posts as the parent object having user as a child, this is cuz,
+            You know only one user is there for many of the posts.
+
+4. Read the docs at mongoDb about the 6 thumb rule database relationships.

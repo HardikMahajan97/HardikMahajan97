@@ -1,0 +1,39 @@
+h3, li{
+    transition: 0.3s ease;
+}
+
+li:hover{
+    box-shadow: 4px 6px 8px rgb(107, 240, 107);
+}
+
+h3{
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+h3:hover{
+    font-size : 2.3rem;
+}
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: rgb(107, 240, 107);
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(107, 240, 107);
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+}

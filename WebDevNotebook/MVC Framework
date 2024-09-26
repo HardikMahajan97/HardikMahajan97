@@ -1,0 +1,35 @@
+1. MVC stands for Models, Views, and Controllers.
+2. We already know about models(collections), and views(front-end pages(ejs)).
+3. Controllers contain the callbacks that we use in the router files.
+4. Suppose listing.js(routes folder) which contains all the main routes about listings, has the index route which renders to index.ejs .
+5. Now we have simply got the index page request and then we simply rendered the index.ejs page.
+6. But that is the route which does not need to define the whole process of rendering and the changes or extracting the data there itself,
+   So we make a controllers folder which segragates  this whole process in another file.
+7. In the controllers folder, define those callbacks and then export them directly
+8. In the listing.js file we now instead of defining the whole thing, just mention a callback of that method.
+
+9. In listing.js file:
+<!-- Index route
+router.get("/", async (req,res) =>{
+    const allListings = await Listing.find({});
+    res.render("listings/index.ejs", {allListings});
+}); -->
+
+Copy this to controllers:
+<!-- Index route
+const Listing = require("../models/listing.js");
+module.exports.index =  async (req,res) =>{
+    const allListings = await Listing.find({});
+    res.render("listings/index.ejs", {allListings});
+}; -->
+
+As simple as that
+
+Now changes in the listing.js file:
+<!-- const listingController = require("../routes/listing.js");
+router.get("/", wrapAsync(listingController.index)); -->
+Done!
+
+
+
+
